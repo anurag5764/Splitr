@@ -1,11 +1,11 @@
 # BUILD_PLAN.md — Development Journey & Design Plan
 
-This document outlines the design, architecture decisions, and development processes followed in creating the Splitwise Clone application.
+This document outlines the design, architecture decisions, and development processes followed in creating the Splitr Clone application.
 
 ---
 
-## 1. Studying Splitwise Core Flow
-Splitwise relies on a few key pillars:
+## 1. Studying Splitr Core Flow
+Splitr relies on a few key pillars:
 1. **Groups as Contexts**: Expenses almost always belong to a group. Even "non-group" expenses are conceptually groups of size 2.
 2. **Flexible Splitting**: Expenses can be divided equally, by exact figures, by percentages, or by shares/weights.
 3. **Netting/Simplification**: If Alice owes Bob $10 and Bob owes Alice $5, the system nets it down to Alice owing Bob $5. In multi-person groups, debts are simplified to minimize the total number of transactions.
@@ -27,7 +27,7 @@ Splitwise relies on a few key pillars:
 
 ## 3. How AI Was Used (Prompts, Iteration & Feedback)
 AI was leveraged continuously to optimize algorithms and bootstrap layouts:
-1. **Initial Prompts**: "Generate a relational database schema for a Splitwise clone using Prisma and PostgreSQL."
+1. **Initial Prompts**: "Generate a relational database schema for a Splitr clone using Prisma and PostgreSQL."
    * *Feedback*: Added unique constraints on friendship requests and memberships to prevent duplicates.
 2. **Algorithm Design**: "How do I net off bidirectional debts in SQL or TypeScript memory?"
    * *AI Suggestion*: Process raw transactions into a `debtMap[debtor][payer]` and net them using reciprocal pairs.

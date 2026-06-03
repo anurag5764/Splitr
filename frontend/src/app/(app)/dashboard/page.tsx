@@ -97,7 +97,7 @@ export default function DashboardPage() {
               <span className="text-slate-950 font-black text-xl">s</span>
             </div>
             <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-350">
-              Splitwise
+              Splitr
             </span>
           </div>
 

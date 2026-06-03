@@ -1,7 +1,7 @@
 {
-  "name": "splitwise-backend",
+  "name": "splitr-backend",
   "version": "1.0.0",
-  "description": "Splitwise clone — Node.js + Express + Prisma + TypeScript backend",
+  "description": "Splitr clone — Node.js + Express + Prisma + TypeScript backend",
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",

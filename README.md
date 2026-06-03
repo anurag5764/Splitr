@@ -1,10 +1,10 @@
-# Splitwise Clone (Monorepo)
+# Splitr Clone (Monorepo)
 
 A premium, full-stack split expense sharing application built using a modern TypeScript tech stack.
 
 ## Live Deployment & Repository
-* **Live Application URL**: [https://splitwise-clone-nextjs.vercel.app](https://splitwise-clone-nextjs.vercel.app)
-* **GitHub Repository**: [https://github.com/anuragdeshmukh/splitwise](https://github.com/anuragdeshmukh/splitwise)
+* **Live Application URL**: [https://splitr-clone-nextjs.vercel.app](https://splitr-clone-nextjs.vercel.app)
+* **GitHub Repository**: [https://github.com/anuragdeshmukh/splitr](https://github.com/anuragdeshmukh/splitr)
 
 ---
 
@@ -38,8 +38,8 @@ This application was designed, structured, and implemented in pair programming c
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/anuragdeshmukh/splitwise.git
-cd splitwise
+git clone https://github.com/anuragdeshmukh/splitr.git
+cd splitr
 ```
 
 Install backend dependencies:
@@ -57,7 +57,7 @@ npm install
 ### 2. Database Migration & Seeding
 Create a `.env` file in the `backend` folder with your postgres connection string:
 ```env
-DATABASE_URL="postgresql://username:password@localhost:5432/splitwise_db?schema=public"
+DATABASE_URL="postgresql://username:password@localhost:5432/splitr_db?schema=public"
 JWT_SECRET="super-secret-random-jwt-key"
 JWT_EXPIRES_IN="7d"
 PORT=4000

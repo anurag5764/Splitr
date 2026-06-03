@@ -1,21 +1,4 @@
 # AI_CONTEXT.md
-
-## 1. Project Overview
-## 2. Product Scope & Requirements
-## 3. Architecture Decisions
-## 4. Tech Stack (with rationale)
-## 5. Database Schema (Prisma schema + ERD)
-## 6. API Design (all endpoints)
-## 7. Business Logic (split algorithms + balance calc)
-## 8. Frontend Structure (folder tree + state strategy)
-## 9. Deployment Plan
-## 10. Testing Plan
-## 11. Tradeoffs & Simplifications
-## 12. Prompts Used & AI Responses
-## 13. Change Log (updated after each phase)
-## 14. Known Issues & Limitations
-## 15. Future Enhancements
-
 ---
 
 ## 1. Project Overview
@@ -157,14 +140,14 @@ Our frontend is organized modularly under Next.js 14 App Router:
 **Status:** ✅ Complete
 
 #### What was done
-Full monorepo scaffold for a Splitwise-clone with a Node.js/Express backend and a Next.js 14 frontend. No feature code was written — this phase covers project structure, tooling, environment wiring, and the full database schema.
+Full monorepo scaffold for a Splitr-clone with a Node.js/Express backend and a Next.js 14 frontend. No feature code was written — this phase covers project structure, tooling, environment wiring, and the full database schema.
 
 ---
 
 #### Folder Structure (node_modules and build outputs excluded)
 
 ```
-splitwise/
+splitr/
 ├── .gitignore
 ├── AI_CONTEXT.md
 │

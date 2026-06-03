@@ -103,7 +103,7 @@ export default function InviteModal({ groupId, isOpen, onClose }: InviteModalPro
               placeholder="friend@email.com"
             />
             <p className="text-[10px] text-slate-500 ml-1">
-              The user must already have a registered Splitwise account.
+              The user must already have a registered Splitr account.
             </p>
           </div>
 

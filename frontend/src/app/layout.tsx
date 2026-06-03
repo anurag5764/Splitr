@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Splitwise — Split bills, track balances",
+  title: "Splitr — Split bills, track balances",
   description: "Share expenses with friends and roommates without the stress.",
 };
 

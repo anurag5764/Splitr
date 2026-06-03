@@ -17,7 +17,7 @@ export default function Home() {
             <span className="text-slate-950 font-black text-xl">s</span>
           </div>
           <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-            Splitwise
+            Splitr
           </span>
         </div>
         <div className="flex items-center space-x-4">
@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="max-w-6xl w-full mx-auto px-6 py-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4 relative z-10">
-        <p>© 2026 Splitwise Inc. Built with Next.js, Express, and Prisma.</p>
+        <p>© 2026 Splitr Inc. Built with Next.js, Express, and Prisma.</p>
         <div className="flex space-x-6">
           <Link href="/login" className="hover:text-slate-400">Sign In</Link>
           <Link href="/register" className="hover:text-slate-400">Register</Link>
