@@ -3,8 +3,8 @@
 A premium, full-stack split expense sharing application built using a modern TypeScript tech stack.
 
 ## Live Deployment & Repository
-* **Live Application URL**: [https://splitr-clone-nextjs.vercel.app](https://splitr-clone-nextjs.vercel.app)
-* **GitHub Repository**: [https://github.com/anuragdeshmukh/splitr](https://github.com/anuragdeshmukh/splitr)
+* **Live Application URL**: [https://splitr-clone-nextjs.vercel.app](https://splitr-zeta.vercel.app)
+* **GitHub Repository**: [https://github.com/anuragdeshmukh/splitr](https://github.com/anurag5764/Splitr)
 
 ---
 
