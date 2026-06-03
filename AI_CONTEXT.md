@@ -68,28 +68,30 @@ A full-stack, real-time bill-splitting monorepo application. It simplifies share
 ### 7.1 Splitting Algorithms
 Our split math engine (`backend/src/services/splitService.ts`) supports:
 * **Equal Split**: Evenly divides the amount, floor-rounding to 2 decimal places. The remaining pennies are assigned to the first participant to guarantee that the sum of splits equals the exact total.
-* **Exact Split**: Verifies that the manually provided participant amounts sum up precisely to the total expense (with a $\pm 0.01$ tolerance).
+* **Exact Split**: Verifies that the manually provided participant amounts sum up precisely to the total expense (with a ±0.01 tolerance).
 * **Percentage Split**: Computes participant portions based on percentages. First participant takes any float-point rounding remainders. Verifies that the sum of percentages equals exactly 100%.
-* **Shares Split**: Computes portion proportions dynamically based on relative shares/weights (e.g., $2:1:1$). Remainder rule applies to the first participant.
+* **Shares Split**: Computes portion proportions dynamically based on relative shares/weights (e.g., 2:1:1). Remainder rule applies to the first participant.
 
 ### 7.2 Debt Simplification and Netting
-Our balance calculation engine (`backend/src/services/balanceService.ts`) uses a `debtMap` to simplify and net out balances:
-1. **Raw Debt Accumulation**:
-   * Collects all group splits where the participant is not the payer, adding positive debt:
-     $$\text{debtMap}[\text{debtor}][\text{payer}] += \text{amountOwed}$$
-2. **Settlement Deduction**:
-   * Deducts confirmed settlements from the map:
-     $$\text{debtMap}[\text{payer}][\text{payee}] -= \text{amountSettled}$$
-3. **N-Way Netting & Simplification**:
-   * Iterates through every pair of users $A$ and $B$.
-   * If both $A \text{ owes } B \text{ (\$}X\text{)}$ and $B \text{ owes } A \text{ (\$}Y\text{)}$ exist:
-     * We calculate $\text{net} = X - Y$.
-     * If $\text{net} > 0$, we set $A \text{ owes } B \text{ = } \text{net}$ and $B \text{ owes } A \text{ = 0}$.
-     * If $\text{net} < 0$, we set $B \text{ owes } A \text{ = } -\text{net}$ and $A \text{ owes } B \text{ = 0}$.
-     * If $\text{net} = 0$, both are set to 0.
-4. **Global Aggregation**:
-   * For user global balances, we traverse all group-level simplified balance sheets, netting the current user's credits and debits per unique counterparty to construct a single global net balance dashboard.
 
+**Step 1 — Raw Debt Accumulation**
+For each expense split where the participant is not the payer:
+debtMap[debtor][payer] += amountOwed
+
+**Step 2 — Settlement Deduction**
+For each confirmed settlement:
+debtMap[payer][payee] -= amountSettled
+
+**Step 3 — Bidirectional Netting**
+For every pair of users A and B:
+- net = debtMap[A][B] - debtMap[B][A]
+- if net > 0  → A owes B = net, B owes A = 0
+- if net < 0  → B owes A = -net, A owes B = 0
+- if net = 0  → both = 0
+
+**Step 4 — Global Aggregation**
+Traverse all group-level balance sheets, net per unique
+counterparty to build a single global balance dashboard.
 ---
 
 ## 8. Frontend Structure (folder tree + state strategy)
@@ -464,9 +466,29 @@ Implemented full multi-algorithm expense splitting logic (Equal, Exact/Unequal, 
 * **Payment Integrations**: Omitted Venmo/PayPal interfaces, relying on manual settlement logging.
 
 ## 12. Prompts Used & AI Responses
-* *Prisma Modeling*: "Build a Prisma postgres schema representing users, groups, expenses, splits, settlements, and comments."
-* *Simplification Algorithms*: "Design a TypeScript service netting debts between users A and B, accounting for unequal fractions and penny division rules."
-* *WebSocket Handshakes*: "Secure a Socket.io server connection by parsing JWT parameters during the initial connection handshake."
+
+**Prompt 1 — Database Schema Design**
+"Build a Prisma PostgreSQL schema representing users, groups,
+expenses, splits, settlements, and comments for a Splitwise clone."
+Response led to 9-model schema with enums for SplitType,
+GroupMemberRole, SettlementStatus.
+
+**Prompt 2 — Split Algorithm**
+"Implement TypeScript pure functions for equal, exact, percentage,
+and share-based expense splits with remainder allocation to the
+first participant."
+Response produced splitService.ts with 4 exported functions.
+
+**Prompt 3 — Debt Netting**
+"Design a TypeScript service that builds a debtMap from expense
+splits, deducts settlements, and nets bidirectional balances
+between user pairs."
+Response produced balanceService.ts debtMap algorithm.
+
+**Prompt 4 — Socket.IO JWT Auth**
+"Secure a Socket.io server by validating JWT from
+socket.handshake.auth.token in io.use() middleware."
+Response produced the chatHandler.ts connection guard pattern.
 
 ---
 
