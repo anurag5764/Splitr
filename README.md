@@ -1,4 +1,4 @@
-# Splitr Clone (Monorepo)
+# Splitr (Monorepo)
 
 A premium, full-stack split expense sharing application built using a modern TypeScript tech stack.
 
