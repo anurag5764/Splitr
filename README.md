@@ -3,8 +3,8 @@
 A premium, full-stack split expense sharing application built using a modern TypeScript tech stack.
 
 ## Live Deployment & Repository
-* **Live Application URL**: [https://splitr-clone-nextjs.vercel.app](https://splitr-zeta.vercel.app)
-* **GitHub Repository**: [https://github.com/anuragdeshmukh/splitr](https://github.com/anurag5764/Splitr)
+* **Live Application URL**: [https://splitr-zeta.vercel.app](https://splitr-zeta.vercel.app)
+* **GitHub Repository**: [https://github.com/anurag5764/Splitr](https://github.com/anurag5764/Splitr)
 
 ---
 
@@ -18,7 +18,7 @@ This application was designed, structured, and implemented in pair programming c
 * **Group Management**: Group creation (Home, Trip, Couple, Other) with Admin/Member permissions and invite management.
 * **Flexible Expense Splitting Engine**: Supports Equal split, Exact/Unequal splits, Percentage splits, and Shares/Weight splits. Includes automatic fractional remainder rules.
 * **Simplified Debt Netting Engine**: Automates bidirectional and multi-party netting inside groups (e.g., Alice owes Bob $50 and Bob owes Alice $30 nets down to Bob owing Alice $20).
-* **Safe Settlement Actions**: Input validations checking positive value constraints, group bounds, and over-settlement barriers ($\pm 0.01$ precision checks) alongside notes logs.
+* **Safe Settlement Actions**: Input validations checking positive value constraints, group bounds, and over-settlement barriers (±0.01 precision checks) alongside notes logs.
 * **Real-time Chat Comments**: Real-time websocket comments on individual expense details, built using Socket.IO.
 * **Premium Dashboard & UI**: Glassmorphism aesthetic with high contrast dark mode, emerald theme accents, loading state skeletons, and responsive layouts.
 
@@ -38,7 +38,7 @@ This application was designed, structured, and implemented in pair programming c
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/anuragdeshmukh/splitr.git
+git clone https://github.com/anurag5764/Splitr.git
 cd splitr
 ```
 
