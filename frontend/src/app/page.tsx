@@ -38,13 +38,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="max-w-6xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center my-auto relative z-10">
-        <div className="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400 mb-6 shadow-inner">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>Phase 2 Live: Authentication System Online</span>
-        </div>
 
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-100 to-slate-500 max-w-3xl">
           Split bills. <br />
