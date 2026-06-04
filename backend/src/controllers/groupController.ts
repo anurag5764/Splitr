@@ -34,8 +34,22 @@ const calculateUserBalanceInGroup = async (groupId: string, userId: string): Pro
     const paid = paidSum._sum.amount ? Number(paidSum._sum.amount) : 0;
     const owed = owedSum._sum.owedAmount ? Number(owedSum._sum.owedAmount) : 0;
 
+    // 3. Sum of all settlements paid by the user in this group
+    const settlementsPaidSum = await prisma.settlement.aggregate({
+      where: { groupId, payerId: userId, status: 'CONFIRMED' },
+      _sum: { amount: true },
+    });
 
-    return Number((paid - owed).toFixed(2));
+    // 4. Sum of all settlements received by the user in this group
+    const settlementsReceivedSum = await prisma.settlement.aggregate({
+      where: { groupId, payeeId: userId, status: 'CONFIRMED' },
+      _sum: { amount: true },
+    });
+
+    const settlementsPaid = settlementsPaidSum._sum.amount ? Number(settlementsPaidSum._sum.amount) : 0;
+    const settlementsReceived = settlementsReceivedSum._sum.amount ? Number(settlementsReceivedSum._sum.amount) : 0;
+
+    return Number(((paid + settlementsPaid) - (owed + settlementsReceived)).toFixed(2));
   } catch (error) {
     console.error(`Error calculating balance for user ${userId} in group ${groupId}:`, error);
     return 0;
